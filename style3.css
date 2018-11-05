@@ -1,7 +1,8 @@
 .center {
 	display: block;
-	margin-left: auto;
-	margin-right: auto;
+	margin-left: 195px;
+
+	margin-right: 100px;
 	width: 89%;
 	height: 40%;
 }
