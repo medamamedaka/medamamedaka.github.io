@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<meta charset="utf-8">
+		<style>
+			body {
+				background-color: #ffffff;
+				margin: 0;
+				overflow: hidden;
+			}
+		</style>
+	</head>
+	<body>
+		
+		<script src="http://threejsplaygnd.brangerbriz.net/js/three.min.js"></script>
+		<script src="http://threejsplaygnd.brangerbriz.net/js/Detector.js"></script>
+		<script>
+
+			if ( ! Detector.webgl ) Detector.addGetWebGLMessage();
+			
+			var camera, scene, renderer;
+			var geometry, material, mesh;
+
+			function setup() {
+
+				var W = window.innerWidth, H = window.innerHeight;
+				renderer = new THREE.WebGLRenderer( { preserveDrawingBuffer: true } );
+				renderer.autoClearColor = false;
+				renderer.setSize( W, H );
+				document.body.appendChild( renderer.domElement );
+
+				camera = new THREE.PerspectiveCamera( 50, W/H, 1, 10000 );
+				camera.position.z = 500;
+
+				scene = new THREE.Scene();
+				
+				map = THREE.ImageUtils.loadTexture('../texturez/proxy.php?url=https://upload.wikimedia.org/wikipedia/commons/thumb/7/7f/Igreja_de_Campanha_Azulejo_4.jpg/300px-Igreja_de_Campanha_Azulejo_4.jpg');
+geometry = new THREE.IcosahedronGeometry(200, 1);
+material = new THREE.MeshLambertMaterial({shading: THREE.FlatShading, color: 0xdcdcdc, map: map});
+mesh = new THREE.Mesh(geometry, material);
+map.wrapS = map.wrapT = THREE.RepeatWrapping;
+map.repeat.set( 1, 1 );
+scene.add(mesh);
+
+ambientLight = new THREE.AmbientLight( 0x000000 );
+scene.add( ambientLight );
+
+hemisphereLight = new THREE.HemisphereLight(0xffffff, 0x000000, 2.26);
+scene.add( hemisphereLight );
+
+directionalLight = new THREE.DirectionalLight(0xffffff, 0.27);
+directionalLight.position.set( 0, 1, 0 );
+directionalLight.castShadow = true;
+scene.add( directionalLight );
+
+spotLight1 = new THREE.SpotLight( 0xffffff, 1.8 );
+spotLight1.position.set( -1000, -751.94, 100 );
+spotLight1.castShadow = true;
+spotLight1.shadowDarkness = 0.2;
+scene.add( spotLight1 );
+
+spotLight2 = new THREE.SpotLight( 0xffffff, 5.3 );
+spotLight2.position.set( 100, 1000, 100 );
+spotLight2.castShadow = true;
+spotLight2.shadowDarkness = 0.2;
+scene.add( spotLight2 );
+
+
+
+			}
+
+			function draw() {
+				mesh.rotation.x = Date.now() * 0.0005;	
+				mesh.rotation.y = Date.now() * 0.0002;	
+				mesh.rotation.z = Date.now() * 0.01;
+				var time = Date.now() * 0.0005;
+				h = ( 360 * ( 1.0 + time ) % 360 ) / 360;
+				mesh.material.color.setHSL(h, 0.5, 0.5 );
+				mesh.position.x = Math.sin( Date.now() * 0.001 ) * 50;  
+				mesh.rotation.z = Date.now() * 0.005;
+
+
+				requestAnimationFrame( draw );
+				
+				// experiment with code from the snippets menu here
+
+				renderer.render( scene, camera );
+
+			}
+
+			setup();
+			draw();
+
+		</script>
+		
+	</body>
+</html>
