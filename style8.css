@@ -2,19 +2,14 @@
 body{
 	background-color: seashell;
 	
-	padding: 200px;
-	padding-top: 0px;
-	padding-left: 130px;
+	padding: 100px;
+	padding-top: 20px;
+	padding-left: 100px;
+	
 	
 	
 }
 
-
-p {
-	color: black;
-	font-family: "Open Sans Condensed";
-	font-size: 20px;
-	}
 	
 
 	
@@ -24,7 +19,7 @@ h1 {
 	font-family: "Open Sans Condensed";
 	font-size: 70px;
 	margin-bottom: 1%;
-	margin-left: 200px;
+	margin-left: 130px;
 
 }
 
@@ -32,15 +27,11 @@ h3 {
 	text-align: center;
 	color: black;
 	font-family: "Open Sans Condensed";
-	font-size: 30px;
+	font-size: 40px;
 	margin-bottom: 50px;
-	margin-left: 200px;
+	margin-left: 130px;
 }
 
-div.relative {
-	position: relative;
-	bottom: 30px;
-}
 
 /* The sidebar menu */
 .sidenav {
@@ -72,7 +63,7 @@ div.relative {
 
 /* Style page content */
 .main {
-    margin-left: 160px; /* Same as the width of the sidebar */
+    margin-left: 500px; /* Same as the width of the sidebar */
     padding: 0px;
 }
 
@@ -81,4 +72,8 @@ div.relative {
     .sidenav {padding-top: 80px;}
     .sidenav a {font-size: 18px;}
 }
+
+
+
+
 

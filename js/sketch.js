@@ -9,7 +9,7 @@ function setup(){
 }
 function draw(){
   
-  background(250,248,227);
+  background(255,245,238);
  
   //bear ears and head
    strokeWeight(5);
