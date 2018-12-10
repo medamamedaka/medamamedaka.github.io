@@ -9,7 +9,7 @@ function setup(){
 }
 function draw(){
   
-  background(255,245,238);
+  background(245,220,203);
  
   //bear ears and head
    strokeWeight(5);
@@ -106,11 +106,16 @@ fill(0);
 
 
  //muzzle
+  
  fill(185,198,245);
+
  ellipse(600,440,140,120);
- stroke(0);
+stroke(0);
 
 
+noFill();
+   strokeWeight(5);
+   ellipse(600,440,140,120);
 
 //nose
  strokeWeight(15);
