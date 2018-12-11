@@ -87,13 +87,12 @@ div.relative {
 	top: 150px;
 }
 
-.como {
-		margin-left: 200px;
-	color: black;
-	font-family: "Open Sans Condensed";
-	font-size: 70px;
-	margin-bottom: 100px;
-	margin-top: 300px;
+.net {
+	display: block;
+	position: relative;
+	top: 300px;
+
+		
 }
 	
 	
